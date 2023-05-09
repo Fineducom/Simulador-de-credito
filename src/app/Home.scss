@@ -8,82 +8,86 @@ $texto-1: 1.75rem;
 $texto-2: 1.25rem;
 $letter-spacing: 0.0625rem;
 .container {
-	width: 50%;
-	margin: 0 auto;
+  width: 50%;
+  margin: 0 auto;
 }
 .header {
-	margin-bottom: 1.875rem;
-	&__titulo {
-		text-align: center;
-		font-size: 2.8125rem;
-		font-weight: 700;
-	}
+  margin-bottom: 1.875rem;
+  &__titulo {
+    text-align: center;
+    font-size: 2.8125rem;
+    font-weight: 700;
+  }
 }
 
 .bienvenida {
-	margin-bottom: 2.1875rem;
-	&__descripcion {
-		font-size: 1.5rem;
-		letter-spacing: $letter-spacing;
-	}
+  margin-bottom: 2.1875rem;
+  &__descripcion {
+    font-size: 1.5rem;
+    letter-spacing: $letter-spacing;
+  }
 }
 .principal {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin-bottom: 3.125rem;
-	&__titulo {
-		margin-bottom: 1.875rem;
-		text-align: center;
-		font-size: 1.75rem;
-		font-weight: 700;
-	}
-	&__grupo {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1.875rem;
-		width: 100%;
-		align-items: center;
-		justify-content: center;
-		margin-bottom: 1.875rem;
-		&-card {
-			width: 14.625rem;
-			height: 14.625rem;
-			padding: 0.625rem;
-			display: flex;
-			flex-direction: column;
-			gap: 1.25rem;
-			align-items: center;
-			justify-content: center;
-			background-color: $color-1;
-			letter-spacing: $letter-spacing;
-		}
-		&-icon {
-			font-size: 2.8125rem;
-			color: $color-5;
-		}
-		&-texto {
-			font-size: 1.5rem;
-			text-align: center;
-			color: $color-2;
-		}
-		&-span {
-			color: $color-5;
-			font-weight: 700;
-		}
-	}
-	&__text-info {
-		font-size: 1.5rem;
-		letter-spacing: $letter-spacing;
-		margin-bottom: 1.875rem;
-	}
-	&__btn {
-		display: block;
-		padding: 0.625rem 1.875rem;
-		border-radius: 0.5rem;
-		font-size: 1.5rem;
-		color: $color-2;
-		background-color: $color-1;
-	}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3.125rem;
+  &__titulo {
+    margin-bottom: 1.875rem;
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+  &__grupo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.875rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.875rem;
+    &-card {
+      width: 14.625rem;
+      height: 14.625rem;
+      padding: 0.625rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      align-items: center;
+      justify-content: center;
+      background-color: $color-1;
+      letter-spacing: $letter-spacing;
+      box-shadow: 0.0625rem 0.0625rem 0.625rem 0.0625rem rgba(0, 0, 0, 0.75);
+    }
+    &-icon {
+      font-size: 2.8125rem;
+      color: $color-5;
+    }
+    &-texto {
+      font-size: 1.5rem;
+      text-align: center;
+      color: $color-2;
+    }
+    &-span {
+      color: $color-5;
+      font-weight: 700;
+    }
+  }
+  &__text-info {
+    font-size: 1.5rem;
+    letter-spacing: $letter-spacing;
+    margin-bottom: 1.875rem;
+  }
+  &__btn {
+    display: block;
+    padding: 0.625rem 1.875rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    color: $color-2;
+    background-color: $color-1;
+    &:hover {
+      box-shadow: 0.0625rem 0.0625rem 0.625rem 0.0625rem rgba(0, 0, 0, 0.75);
+    }
+  }
 }

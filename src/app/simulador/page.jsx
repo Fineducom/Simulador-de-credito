@@ -1,5 +1,9 @@
 import Formulario from "./Formulario/page";
 import "./simulador.scss";
+export const metadata = {
+  title: "Fineducom | Simulador de credito",
+  description: "creado por Fineducom",
+};
 export default function page() {
   return (
     <>

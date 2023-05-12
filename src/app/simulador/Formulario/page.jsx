@@ -2,32 +2,54 @@
 import { useState } from "react";
 import "./formulario.scss";
 export default function Formulario() {
-  const [inputValue, setInputValue] = useState("");
+  const [prestamo, setPrestamo] = useState(500000);
+  const [tasaInteres, setTasaInteres] = useState("");
+  const [plazo, setPlazo] = useState("");
+  const [pagoMensual, setPagoMensual] = useState(0);
+
+  const handleSubmit = (e) => {
+    e.preventDefaul();
+    const tasaIntersMensual = tasaInteres / 12;
+    const denominador = 1 - Math.pow(1 + tasaIntersMensual - prestamo);
+    const pagoMensual = (prestamo * tasaIntersMensual) / denominador;
+    setPagoMensual(pagoMensual);
+  };
+
+  const handleCalcular = () => {
+    const calcularPrestamo =
+      Math.pow(pagoMensual * (1 - Math.pow(1 - tasaInteres, -prestamo)), -1) /
+      tasaIntersMensual;
+    setPrestamo(calcularPrestamo);
+  };
   function handleChange(event) {
     const value = event.target.value;
     if (/^\d{0,2}$/.test(value)) {
-      setInputValue(value);
+      setPlazo(value);
     }
   }
   // aquí agrego el cambio de estado del input range
-  const [valor, setValor] = useState(500000);
   function handleValor(event) {
     const value = parseFloat(event.target.value);
-    const newValor = value * 500000;
-    setValor(newValor);
+    const nuevoValor = value * 500000;
+    setPrestamo(nuevoValor);
   }
+
   return (
     <>
-      <form className="formulario">
+      <form className="formulario" onSubmit={handleSubmit}>
         <div className="formulario__grupo">
           <label className="formulario__grupo-label">Tipo de Crédito</label>
-          <select className="formulario__grupo-select">
+          <select
+            value={tasaInteres}
+            onChange={(e) => setTasaInteres(parseFloat(e.target.value))}
+            className="formulario__grupo-select"
+          >
             <option value="">Seleccione una opcion</option>
-            <option value="3.22">Salga del Hueco</option>
-            <option value="3.00">Despegue</option>
-            <option value="2.90">Creciendo</option>
-            <option value="2.60">Te Apoyamos</option>
-            <option value="2.14">Pa'los nuestros</option>
+            <option value="0.0322">Salga del Hueco</option>
+            <option value="0.03">Despegue</option>
+            <option value="0.029">Creciendo</option>
+            <option value="0.026">Te Apoyamos</option>
+            <option value="0.0214">Pa'los nuestros</option>
           </select>
         </div>
         <div className="formulario__grupo">
@@ -37,7 +59,7 @@ export default function Formulario() {
           <input
             type="texto"
             max={"48"}
-            value={inputValue}
+            value={plazo}
             onChange={handleChange}
             name="palzo"
             id="plazo"
@@ -53,20 +75,21 @@ export default function Formulario() {
             type="range"
             min={"1"}
             max={"10"}
-            value={valor / 500000}
+            value={prestamo / 500000}
             onChange={handleValor}
             name="monto"
             id="monto"
             className="formulario__grupo-input formulario__grupo-input--range"
           />
-          <p className="formulario__grupo-span">
-            <span>$</span> {valor.toLocaleString()}{" "}
-          </p>
+          <span className="formulario__grupo-span">
+            $ {prestamo.toLocaleString()}{" "}
+          </span>
         </div>
         <button type="submit" className="formulario__btn-simular">
           Simular Crédito
         </button>
       </form>
+      {pagoMensual > 0 && <p>prueba pago mensual: ${pagoMensual.toFixed(2)}</p>}
     </>
   );
 }

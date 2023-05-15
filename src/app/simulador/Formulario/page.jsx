@@ -17,7 +17,7 @@ export default function Formulario() {
 
   const handleCalcular = () => {
     const calcularPrestamo =
-      Math.pow(pagoMensual * (1 - Math.pow(1 - tasaInteres, -prestamo)), -1) /
+      Math.pow(pagoMensual * (1 - Math.pow(1 - tasaInteres, -prestamo)) - 1) /
       tasaIntersMensual;
     setPrestamo(calcularPrestamo);
   };

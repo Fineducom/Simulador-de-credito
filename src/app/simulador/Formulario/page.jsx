@@ -1,38 +1,44 @@
-"use client";
-import { useState } from "react";
-import "./formulario.scss";
-export default function Formulario() {
-  const [prestamo, setPrestamo] = useState(500000);
-  const [tasaInteres, setTasaInteres] = useState("");
-  const [plazo, setPlazo] = useState("");
-  const [pagoMensual, setPagoMensual] = useState(0);
 
-  const handleSubmit = (e) => {
-    e.preventDefaul();
-    const tasaIntersMensual = tasaInteres / 12;
-    const denominador = 1 - Math.pow(1 + tasaIntersMensual - prestamo);
-    const pagoMensual = (prestamo * tasaIntersMensual) / denominador;
-    setPagoMensual(pagoMensual);
-  };
+  "use client";
 
-  const handleCalcular = () => {
-    const calcularPrestamo =
-      Math.pow(pagoMensual * (1 - Math.pow(1 - tasaInteres, -prestamo)) - 1) /
-      tasaIntersMensual;
-    setPrestamo(calcularPrestamo);
-  };
-  function handleChange(event) {
-    const value = event.target.value;
-    if (/^\d{0,2}$/.test(value)) {
-      setPlazo(value);
+  import React, { useState } from "react";
+  import "./formulario.scss";
+  
+  export default function Formulario() {
+    const [prestamo, setPrestamo] = useState(500000);
+    const [tasaInteres, setTasaInteres] = useState("");
+    const [plazo, setPlazo] = useState("");
+    const [pagoMensual, setPagoMensual] = useState(0);
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const tasaInteresMensual = tasaInteres / 12;
+      const denominador = 1 - Math.pow(1 + tasaInteresMensual, -prestamo);
+      const pagoMensual = (prestamo * tasaInteresMensual) / denominador;
+      setPagoMensual(pagoMensual);
+    };
+  
+    const handleCalcular = () => {
+      const calcularPrestamo =
+        Math.pow(pagoMensual * (1 - Math.pow(1 - tasaInteres, -prestamo)) - 1) /
+        tasaInteresMensual;
+      setPrestamo(calcularPrestamo);
+    };
+  
+    function handleChange(event) {
+      const value = event.target.value;
+      if (/^\d{0,2}$/.test(value)) {
+        setPlazo(value);
+      }
     }
-  }
-  // aquí agrego el cambio de estado del input range
-  function handleValor(event) {
-    const value = parseFloat(event.target.value);
-    const nuevoValor = value * 500000;
-    setPrestamo(nuevoValor);
-  }
+  
+    // aquí agrego el cambio de estado del input range
+    function handleValor(event) {
+      const value = parseFloat(event.target.value);
+      const nuevoValor = value * 500000;
+      setPrestamo(nuevoValor);
+    }
+  
 
   return (
     <>
@@ -88,8 +94,8 @@ export default function Formulario() {
         <button type="submit" className="formulario__btn-simular">
           Simular Crédito
         </button>
+        {pagoMensual > 0 && <p>prueba pago mensual: ${pagoMensual.toFixed(2)}</p>}
       </form>
-      {pagoMensual > 0 && <p>prueba pago mensual: ${pagoMensual.toFixed(2)}</p>}
     </>
   );
 }

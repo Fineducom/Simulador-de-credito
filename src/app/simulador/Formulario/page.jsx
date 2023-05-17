@@ -42,6 +42,7 @@
 
   return (
     <>
+    <div className="container">
       <form className="formulario" onSubmit={handleSubmit}>
         <div className="formulario__grupo">
           <label className="formulario__grupo-label">Tipo de Crédito</label>
@@ -96,6 +97,7 @@
         </button>
         {pagoMensual > 0 && <p>prueba pago mensual: ${pagoMensual.toFixed(2)}</p>}
       </form>
+    </div>
     </>
   );
 }

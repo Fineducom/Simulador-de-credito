@@ -8,11 +8,17 @@ $texto-1: 1.75rem;
 $texto-2: 1.25rem;
 $letter-spacing: 0.0625rem;
 .contenedor {
-  width: 40%;
-  margin: 0 auto;
+  border-radius: 10px;
+  width: 50%;
+  margin: 0 auto auto;
   background-color: $color-2;
   padding: 2.5rem;
   box-shadow: 0rem 0rem 0.625rem 0.125rem rgba(0, 0, 0, 0.2);
+
+  @media(max-width: 620px) {
+   width: 90%;
+  }
+
 }
 .encabezado {
   margin-bottom: 2.5rem;

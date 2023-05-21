@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Resultados from "../Resultados/page";
+import Resultados from "./Resultados";
 import "./formulario.scss";
 
 export default function Formulario() {

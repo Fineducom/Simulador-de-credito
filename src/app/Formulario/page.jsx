@@ -1,9 +1,7 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Resultados from "../Resultados/page";
 import "./formulario.scss";
-import BounceLoader from 'react-spinners/BounceLoader';
 
 export default function Formulario() {
   const [prestamo, setPrestamo] = useState(500000);
@@ -23,13 +21,6 @@ export default function Formulario() {
     setPagoMensual(pagoMensual);
   };
 
-  const handleCalcular = () => {
-    const calcularPrestamo =
-      Math.pow(pagoMensual * (1 - Math.pow(1 - tasaDeInteres, -prestamo)) - 1) /
-      tasaInteresMensual;
-    setPrestamo(calcularPrestamo);
-  };
-
   function handleChange(event) {
     const value = event.target.value;
     if (/^\d{0,2}$/.test(value)) {
@@ -45,8 +36,8 @@ export default function Formulario() {
   }
 
   // Funcion the loading
-  function loadingSimulator () {
-    setLoading(true)
+  function loadingSimulator() {
+    setLoading(true);
   }
 
   return (
@@ -65,7 +56,7 @@ export default function Formulario() {
               <option value="0.03">Despegue</option>
               <option value="0.029">Creciendo</option>
               <option value="0.026">Te Apoyamos</option>
-              <option value="0.0214">Pa'los nuestros</option>
+              <option value="0.0214">Pa los nuestros</option>
             </select>
           </div>
           <div className="formulario__grupo">
@@ -101,19 +92,24 @@ export default function Formulario() {
               $ {prestamo.toLocaleString()}{" "}
             </span>
           </div>
-          <button type="submit" className="formulario__btn-simular" onClick={loadingSimulator}>
+          <button
+            type="submit"
+            className="formulario__btn-simular"
+            onClick={loadingSimulator}
+          >
             Simular Crédito
           </button>
         </form>
 
         {/* Condition of the loading */}
-        {laoding && <Resultados
-        tasaDeInteres={tasaDeInteres}
-        PagoMensual={pagoMensual}
-        plazo={plazo}
-        prestamo={prestamo}
-        />}
-        
+        {laoding && (
+          <Resultados
+            tasaDeInteres={tasaDeInteres}
+            PagoMensual={pagoMensual}
+            plazo={plazo}
+            prestamo={prestamo}
+          />
+        )}
       </div>
     </>
   );

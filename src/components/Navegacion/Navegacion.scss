@@ -9,34 +9,34 @@ $texto-2: 1.25rem;
 $letter-spacing: 0.0625rem;
 
 .menu {
-	background: white;
-	height: 5.625rem;
-	display: flex;
-	align-items: center;
-	box-shadow: 0rem 0.125rem 0.3125rem 0rem rgba(0, 0, 0, 0.2);
-	margin-bottom: 1.875rem;
-	&__contenedor {
-		width: 80%;
-		margin: 0 auto;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	&__link {
-		font-size: 1.75rem;
-		font-weight: 600;
-		display: flex;
-		align-items: center;
-		gap: 1.25rem;
-		color: #c9c9c9;
-		transition: all 0.3s ease;
-		&:hover {
-			color: $color-1;
-			transition: all 0.3s ease;
-		}
-	}
-	&__img {
-		width: 6.25rem;
-		height: auto;
-	}
+  background: white;
+  height: 7.5rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0rem 0.125rem 0.3125rem 0rem rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.875rem;
+  &__contenedor {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__link {
+    font-size: 1.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    color: #c9c9c9;
+    transition: all 0.3s ease;
+    &:hover {
+      color: $color-1;
+      transition: all 0.3s ease;
+    }
+  }
+  &__img {
+    width: 9.375rem;
+    height: auto;
+  }
 }

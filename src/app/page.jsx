@@ -1,5 +1,9 @@
 import Link from "next/link";
 import "./Home.scss";
+export const metadata = {
+  title: "Fineducom | Inicio",
+  description: "creado por Fineducom",
+};
 export default function HomePage() {
   return (
     <>

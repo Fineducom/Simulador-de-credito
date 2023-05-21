@@ -1,0 +1,30 @@
+$color-1: #4f2d81;
+$color-2: #fafafa;
+$color-3: #3f3f3f;
+$color-4: #858585;
+$color-5: #ffde20;
+$titulo: 2.1875rem;
+$texto-1: 1.75rem;
+$texto-2: 1.25rem;
+$letter-spacing: 0.0625rem;
+.contenedor {
+  border-radius: 10px;
+  width: 50%;
+  margin: 0 auto auto;
+  background-color: $color-2;
+  padding: 2.5rem;
+  box-shadow: 0rem 0rem 0.625rem 0.125rem rgba(0, 0, 0, 0.2);
+
+  @media(max-width: 620px) {
+   width: 90%;
+  }
+
+}
+.encabezado {
+  margin-bottom: 2.5rem;
+  &__titulo {
+    text-align: center;
+    font-size: 2.1875rem;
+    font-weight: 700;
+  }
+}

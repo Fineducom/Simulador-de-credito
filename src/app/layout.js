@@ -9,7 +9,7 @@ const fuente = Inter({
 });
 
 export const metadata = {
-  title: "Fineducom | simulador de credito",
+  title: "Fineducom",
   description: "creado por Fineducom",
 };
 
